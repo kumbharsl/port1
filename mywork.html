@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Kumbhar - Flutter Developer</title>
+    <!-- Add these in your <head> section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #4d13d1;
+            --secondary-color: #fe4a57;
+            --accent-color: #17a2b8;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: var(--gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 21px !important;
+
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #fd4a58 !important;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1920/1080') center/cover;
+            opacity: 0.1;
+            animation: pulse 4s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.1;
+            }
+
+            50% {
+                opacity: 0.2;
+            }
+
+            100% {
+                opacity: 0.1;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 0 15px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .hero-btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .hero-btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        /* About Section */
+        .about-card {
+            padding: 30px;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            text-align: center;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            color: white;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .about-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient);
+            opacity: 0.3;
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Projects Section */
+        .project-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 15px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .project-img {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            transition: all 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(77, 19, 209, 0.9), rgba(254, 74, 87, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .project-tag {
+            padding: 5px 15px;
+            border-radius: 20px;
+            background: var(--light-color);
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        /* Skills Section */
+        .skill-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .skill-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-progress {
+            height: 10px;
+            border-radius: 5px;
+            background: var(--light-color);
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: var(--gradient);
+            transition: width 1.5s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: progress-shine 2s infinite;
+        }
+
+        @keyframes progress-shine {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Contact Section */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 25px;
+            padding: 0 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            padding: 20px;
+        }
+
+        .submit-btn {
+            height: 50px;
+            border-radius: 25px;
+            background: var(--gradient);
+            border: none;
+            color: white;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: var(--gradient);
+            padding: 40px;
+            border-radius: 15px;
+            height: 100%;
+            color: white;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            padding: 60px 0 30px;
+            color: white;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1920/1080') center/cover;
+            opacity: 0.1;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: var(--dark-color);
+            color: white;
+        }
+
+        .dark-mode .navbar.scrolled {
+            background: rgba(26, 26, 26, 0.95);
+        }
+
+        .dark-mode .about-card,
+        .dark-mode .project-card,
+        .dark-mode .contact-form,
+        .dark-mode .skill-box {
+            background: #2d2d2d;
+            color: white;
+        }
+
+        .dark-mode .form-control {
+            background: #2d2d2d;
+            color: white;
+            border-color: #444;
+        }
+
+        .dark-mode .project-tag {
+            background: #444;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar-nav {
+                background: var(--light-color);
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 15px;
+            }
+
+            .dark-mode .navbar-nav {
+                background: #2d2d2d;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .section-padding {
+                padding: 80px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                margin-top: 30px;
+            }
+
+            .project-card {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero-btn {
+                width: 100%;
+            }
+
+            .contact-form {
+                padding: 20px;
+            }
+        }
+
+        /* Animations */
+        .animate-up {
+            animation: slideUp 1s ease forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">SK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Live Projects</h2>
+                <p>Showcase of my latest work and mobile applications</p>
+            </div>
+
+            <div class="owl-carousel project-carousel owl-theme">
+                <!-- Project 1 -->
+                <div class="item" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="assets/Apple.jpeg" alt="Project 1" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Attendance Management App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Maps</span>
+                            </div>
+                            <p>A comprehensive attendance tracking system with real-time location and reporting
+                                features.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 2" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">E-Commerce Platform</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">REST API</span>
+                                <span class="project-tag">Stripe</span>
+                            </div>
+                            <p>Full-featured e-commerce application with payment integration and order tracking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 3" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Social Media App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Real-time</span>
+                            </div>
+                            <p>Social networking platform with real-time messaging and media sharing capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Intership Projects</h2>
+                <p>Showcase of my latest work and mobile applications</p>
+            </div>
+
+            <div class="owl-carousel project-carousel owl-theme">
+                <!-- Project 1 -->
+                <div class="item" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="assets/Apple.jpeg" alt="Project 1" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Attendance Management App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Maps</span>
+                            </div>
+                            <p>A comprehensive attendance tracking system with real-time location and reporting
+                                features.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 2" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">E-Commerce Platform</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">REST API</span>
+                                <span class="project-tag">Stripe</span>
+                            </div>
+                            <p>Full-featured e-commerce application with payment integration and order tracking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 3" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Social Media App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Real-time</span>
+                            </div>
+                            <p>Social networking platform with real-time messaging and media sharing capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Institute Projects</h2>
+                <p>Showcase of my latest work and mobile applications</p>
+            </div>
+
+            <div class="owl-carousel project-carousel owl-theme">
+                <!-- Project 1 -->
+                <div class="item" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="assets/Apple.jpeg" alt="Project 1" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Attendance Management App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Maps</span>
+                            </div>
+                            <p>A comprehensive attendance tracking system with real-time location and reporting
+                                features.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 2" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">E-Commerce Platform</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">REST API</span>
+                                <span class="project-tag">Stripe</span>
+                            </div>
+                            <p>Full-featured e-commerce application with payment integration and order tracking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 3" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Social Media App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Real-time</span>
+                            </div>
+                            <p>Social networking platform with real-time messaging and media sharing capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Academic Projects</h2>
+                <p>Showcase of my latest work and mobile applications</p>
+            </div>
+
+            <div class="owl-carousel project-carousel owl-theme">
+                <!-- Project 1 -->
+                <div class="item" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="assets/Apple.jpeg" alt="Project 1" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Attendance Management App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Maps</span>
+                            </div>
+                            <p>A comprehensive attendance tracking system with real-time location and reporting
+                                features.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 2" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">E-Commerce Platform</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">REST API</span>
+                                <span class="project-tag">Stripe</span>
+                            </div>
+                            <p>Full-featured e-commerce application with payment integration and order tracking.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="/api/placeholder/400/300" alt="Project 3" class="img-fluid">
+                            <div class="project-overlay">
+                                <div class="d-flex gap-3">
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-light rounded-circle">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h4 class="project-title">Social Media App</h4>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Real-time</span>
+                            </div>
+                            <p>Social networking platform with real-time messaging and media sharing capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="footer-title">About Me</h4>
+                        <p>Passionate Flutter developer dedicated to creating beautiful and functional mobile
+                            applications. Always eager to take on new challenges and deliver exceptional results.</p>
+                        <div class="social-icons mt-4">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 mb-4">
+                        <h4 class="footer-title">Contact Info</h4>
+                        <ul class="footer-links">
+                            <li>
+                                <i class="fas fa-phone me-2"></i>
+                                +91 7066090965
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope me-2"></i>
+                                sagarkumbhar2018@gmail.com
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                Pune, Maharashtra, India
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sagar Kumbhar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Initialize Owl Carousel
+        $(document).ready(function () {
+            $('.project-carousel').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 5000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: { items: 1 },
+                    768: { items: 2 },
+                    1024: { items: 3 }
+                }
+            });
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.querySelector('.theme-toggle i');
+            icon.classList.toggle('fa-sun');
+            icon.classList.toggle('fa-moon');
+        }
+
+        // Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Progress Bar Animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Animate progress bars when skills section is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                }
+            });
+        });
+
+        observer.observe(document.querySelector('#skills'));
+
+        // Typed.js Effect for Hero Section
+        document.addEventListener('DOMContentLoaded', function () {
+            const titles = ['Flutter Developer', 'Mobile App Specialist', 'UI/UX Enthusiast'];
+            let currentTitleIndex = 0;
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+
+            function typeTitle() {
+                let currentTitle = titles[currentTitleIndex];
+                let charIndex = 0;
+
+                heroSubtitle.textContent = '';
+
+                function type() {
+                    if (charIndex < currentTitle.length) {
+                        heroSubtitle.textContent += currentTitle[charIndex];
+                        charIndex++;
+                        setTimeout(type, 100);
+                    } else {
+                        setTimeout(erase, 2000);
+                    }
+                }
+
+                function erase() {
+                    if (heroSubtitle.textContent.length > 0) {
+                        heroSubtitle.textContent = heroSubtitle.textContent.slice(0, -1);
+                        setTimeout(erase, 50);
+                    } else {
+                        currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+                        setTimeout(typeTitle, 500);
+                    }
+                }
+
+                type();
+            }
+
+            typeTitle();
+        });
+
+        // Parallax Effect for Hero Section
+        document.addEventListener('mousemove', function (e) {
+            const hero = document.querySelector('.hero');
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+
+            hero.style.backgroundPosition = `${mouseX * 50}% ${mouseY * 50}%`;
+        });
+
+        // Project Filter Animation
+        const projectCards = document.querySelectorAll('.project-card');
+
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-10px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Navbar Active Link Update
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (window.pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile Menu Toggle
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (e) {
+            if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+                navbarCollapse.classList.remove('show');
+            }
+        });
+
+        // Loading Animation
+        window.addEventListener('load', function () {
+            document.body.classList.add('loaded');
+        });
+
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const formErrors = validateForm(formData);
+
+            if (Object.keys(formErrors).length === 0) {
+                // Form is valid, you can submit it here
+                alert('Message sent successfully!');
+                this.reset();
+            } else {
+                // Display errors
+                Object.keys(formErrors).forEach(key => {
+                    const input = this.querySelector(`[name="${key}"]`);
+                    const errorMessage = document.createElement('div');
+                    errorMessage.classList.add('error-message');
+                    errorMessage.textContent = formErrors[key];
+                    input.parentNode.appendChild(errorMessage);
+                });
+            }
+        });
+
+        function validateForm(formData) {
+            const errors = {};
+
+            if (!formData.get('name')) {
+                errors.name = 'Name is required';
+            }
+
+            if (!formData.get('email')) {
+                errors.email = 'Email is required';
+            } else if (!isValidEmail(formData.get('email'))) {
+                errors.email = 'Please enter a valid email address';
+            }
+
+            if (!formData.get('message')) {
+                errors.message = 'Message is required';
+            }
+
+            return errors;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+
+</html>
