@@ -46,22 +46,25 @@
             color: white;
         }
 
-        .project-card {
+        .project-card,
+        .certification-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: none;
             border-radius: 15px;
             overflow: hidden;
         }
 
-        .project-card:hover {
+        .project-card:hover,
+        .certification-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            border-color: var(--secondary-color);
         }
 
-        .project-card img {
+        .project-card img,
+        .certification-card img {
             height: 200px;
             object-fit: cover;
+            width: 100%;
         }
 
         .skill-badge {
@@ -114,6 +117,25 @@
             right: 20px;
             z-index: 1000;
         }
+
+        .download-resume-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+            font-weight: bold;
+        }
+
+        .download-resume-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -133,13 +155,16 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#resume">Resume</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#experience">Experience</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#education">Education</a>
+                        <a class="nav-link" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
+                        <a class="nav-link" href="#certifications">Certifications</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -164,15 +189,24 @@
                     <p class="text-center">
                         Dedicated Flutter developer with expertise in creating beautiful, responsive, and performant
                         mobile applications. Passionate about clean code architecture and delivering exceptional user
-                        experiences.
-                        Skilled in both iOS and Android development using Flutter framework.
+                        experiences. Skilled in both iOS and Android development using Flutter framework.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experience" class="py-5 bg-light">
+    <section id="resume" class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">Resume</h2>
+            <p class="mb-4">Download my resume to learn more about my experience and skills</p>
+            <a href="#" class="download-resume-btn">
+                <i class="fas fa-download me-2"></i>Download Resume
+            </a>
+        </div>
+    </section>
+
+    <section id="experience" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Experience</h2>
             <div class="row">
@@ -196,7 +230,9 @@
                             <h6 class="card-subtitle mb-2 text-muted">Previous Company | 2020 - 2022</h6>
                             <p class="card-text">
                                 • Developed and maintained multiple Flutter applications
+                                <br>
                                 • Integrated REST APIs and implemented Firebase services
+                                <br>
                                 • Collaborated with design team for UI/UX implementation
                             </p>
                         </div>
@@ -206,7 +242,7 @@
         </div>
     </section>
 
-    <section id="education" class="py-5">
+    <section id="education" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-4">Education</h2>
             <div class="row">
@@ -230,13 +266,13 @@
         </div>
     </section>
 
-    <section id="projects" class="py-5 bg-light">
+    <section id="projects" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Projects</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card project-card h-100">
-                        <img src="assets/Apple.jpeg" alt="E-Commerce App" class="card-img-top">
+                        <img src="/api/placeholder/400/300" alt="E-Commerce App" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">E-Commerce App</h5>
                             <p class="card-text">Flutter-based e-commerce application with features like product
@@ -246,7 +282,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card project-card h-100">
-                        <img src="assets/image.png" alt="Social Media App" class="card-img-top">
+                        <img src="/api/placeholder/400/300" alt="Social Media App" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Social Media App</h5>
                             <p class="card-text">Social networking application with real-time chat, post sharing, and
@@ -256,11 +292,49 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card project-card h-100">
-                        <img src="assets/Apple.jpeg" alt="Fitness Tracker" class="card-img-top">
+                        <img src="/api/placeholder/400/300" alt="Fitness Tracker" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">Fitness Tracker</h5>
                             <p class="card-text">Health and fitness tracking app with workout plans, progress
                                 monitoring, and nutrition tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Certifications</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card certification-card h-100">
+                        <img src="/api/placeholder/400/300" alt="Flutter Certification" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Flutter Development</h5>
+                            <p class="card-text">Complete Flutter App Development Bootcamp with Dart - 2023</p>
+                            <p class="text-muted">Issued by: Udemy</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card certification-card h-100">
+                        <img src="/api/placeholder/400/300" alt="Firebase Certification" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">Firebase Essentials</h5>
+                            <p class="card-text">Firebase in Flutter: Building Mobile Applications</p>
+                            <p class="text-muted">Issued by: Google</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card certification-card h-100">
+                        <img src="/api/placeholder/400/300" alt="UI/UX Certification" class="card-img-top">
+                        <div class="card-body">
+                            <h5 class="card-title">UI/UX Design</h5>
+                            <p class="card-text">Mobile App Design: From Wireframe to Prototype</p>
+                            <p class="text-muted">Issued by: Coursera</p>
                         </div>
                     </div>
                 </div>
@@ -295,37 +369,4 @@
                                 <p><i class="fas fa-phone"></i> +91 7066090965</p>
                                 <p><i class="fas fa-envelope"></i> sagarkumbhar2018@gmail.com</p>
                             </div>
-                            <div class="social-icons text-center">
-                                <a href="#"><i class="fab fa-linkedin"></i></a>
-                                <a href="#"><i class="fab fa-github"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <button class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <footer class="bg-dark text-white py-4">
-        <div class="container text-center">
-            <p>&copy; 2024 Sagar Kumbhar. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.querySelector('.theme-toggle i');
-            icon.classList.toggle('fa-sun');
-            icon.classList.toggle('fa-moon');
-        }
-    </script>
-</body>
-
-</html>
+                            <div
