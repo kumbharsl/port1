@@ -40,6 +40,7 @@
             color: var(--dark-text) !important;
         }
 
+        /* Hero Section */
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color), #ff8533);
             padding: 8rem 0;
@@ -58,6 +59,7 @@
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
         }
 
+        /* Cards */
         .project-card,
         .certification-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -66,6 +68,7 @@
             overflow: hidden;
             background: var(--light-bg);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
         }
 
         .project-card:hover,
@@ -82,6 +85,7 @@
             border-bottom: 3px solid var(--primary-color);
         }
 
+        /* Skills */
         .skill-badge {
             background-color: var(--primary-color);
             color: white;
@@ -99,6 +103,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* Navigation */
         .nav-link {
             transition: all 0.3s;
             position: relative;
@@ -121,6 +126,7 @@
             width: 100%;
         }
 
+        /* Theme Toggle */
         .theme-toggle {
             cursor: pointer;
             padding: 0.5rem;
@@ -146,6 +152,7 @@
             background-color: var(--secondary-color);
         }
 
+        /* Resume Button */
         .download-resume-btn {
             background-color: var(--primary-color);
             color: white;
@@ -167,6 +174,7 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Section Titles */
         .section-title {
             position: relative;
             padding-bottom: 15px;
@@ -182,6 +190,85 @@
             width: 50px;
             height: 3px;
             background-color: var(--primary-color);
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .dark-mode .testimonial-card {
+            background-color: #2d2d2d;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin: 1rem 0;
+            color: var(--light-text);
+        }
+
+        .dark-mode .testimonial-text {
+            color: var(--dark-text);
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.8;
+        }
+
+        .carousel-control-prev {
+            left: -50px;
+        }
+
+        .carousel-control-next {
+            right: -50px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+        }
+
+        .carousel-inner {
+            padding: 2rem 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            padding: 0 60px;
+            overflow: hidden;
         }
 
         /* Footer Styles */
@@ -248,6 +335,7 @@
             display: flex;
             gap: 1.5rem;
             margin-top: 1rem;
+            justify-content: center;
         }
 
         .social-links a {
@@ -293,10 +381,32 @@
         .dark-mode .footer {
             background: linear-gradient(135deg, #000000, #1a1a1a);
         }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .carousel-container {
+                padding: 0 20px;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 30px;
+                height: 30px;
+            }
+
+            .carousel-control-prev {
+                left: -10px;
+            }
+
+            .carousel-control-next {
+                right: -10px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#home">
@@ -326,6 +436,9 @@
                         <a class="nav-link" href="#certifications">Certifications</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -333,6 +446,7 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
         <div class="container text-center">
             <h1 class="display-4 fw-bold mb-4">SAGAR KUMBHAR</h1>
@@ -354,6 +468,7 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section id="about" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">About Me</h2>
@@ -369,6 +484,7 @@
         </div>
     </section>
 
+    <!-- Resume Section -->
     <section id="resume" class="py-5 bg-light">
         <div class="container text-center">
             <h2 class="section-title">Resume</h2>
@@ -379,6 +495,7 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Experience</h2>
@@ -394,6 +511,10 @@
                                 • Implemented clean architecture and state management solutions
                                 <br>
                                 • Mentored junior developers and conducted code reviews
+                                <br>
+                                • Optimized app performance and reduced loading times by 40%
+                                <br>
+                                • Implemented CI/CD pipelines for automated testing and deployment
                             </p>
                         </div>
                     </div>
@@ -407,6 +528,10 @@
                                 • Integrated REST APIs and implemented Firebase services
                                 <br>
                                 • Collaborated with design team for UI/UX implementation
+                                <br>
+                                • Implemented real-time features using WebSocket connections
+                                <br>
+                                • Achieved 4.5+ star ratings for applications on both App Store and Play Store
                             </p>
                         </div>
                     </div>
@@ -415,6 +540,7 @@
         </div>
     </section>
 
+    <!-- Education Section -->
     <section id="education" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center section-title">Education</h2>
@@ -424,123 +550,220 @@
                         <div class="card-body">
                             <h5 class="card-title">Master of Science in Computer Science</h5>
                             <h6 class="card-subtitle mb-3 text-muted">University Name | 2018 - 2020</h6>
-                            <p class="card-text">Specialized in Mobile Computing and Application Development</p>
+                            <p class="card-text">
+                                Specialized in Mobile Computing and Application Development
+                                <br>
+                                • Relevant Coursework: Mobile App Development, Software Architecture, Cloud Computing
+                                <br>
+                                • GPA: 3.8/4.0
+                            </p>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Bachelor of Science in Computer Science</h5>
                             <h6 class="card-subtitle mb-3 text-muted">University Name | 2015 - 2018</h6>
-                            <p class="card-text">Focus on Programming and Software Development</p>
+                            <p class="card-text">
+                                Focus on Programming and Software Development
+                                <br>
+                                • Relevant Coursework: Data Structures, Algorithms, Database Management
+                                <br>
+                                • GPA: 3.7/4.0
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Projects Section with Carousel -->
     <section id="projects" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Projects</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card project-card h-100">
-                        <img src="assets/Apple.jpeg" alt="E-Commerce App" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Attendance App</h5>
-                            <p class="card-text">Flutter-based Attendance application with features like Signin
-                                , Present management, and payment.</p>
-                            <div class="mt-3">
-                                <a href="https://github.com/kumbharsl/forts" class="btn btn-sm"
-                                    style="background-color: var(--primary-color); color: white;">
-                                    <i class="fab fa-github me-2"></i>View Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary ms-2">Live Demo</a>
+            <div class="carousel-container">
+                <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card project-card">
+                                <img src="/api/placeholder/400/300" alt="Attendance App" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Attendance App</h5>
+                                    <p class="card-text">Flutter-based Attendance application with features like Signin,
+                                        Present management, and payment integration.</p>
+                                    <div class="mt-3">
+                                        <a href="https://github.com/kumbharsl/forts" class="btn btn-sm"
+                                            style="background-color: var(--primary-color); color: white;">
+                                            <i class="fab fa-github me-2"></i>View Code
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary ms-2">Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card project-card">
+                                <img src="/api/placeholder/400/300" alt="Social Media App" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Social Media App</h5>
+                                    <p class="card-text">Social networking platform with real-time chat, post sharing,
+                                        and Firebase authentication.</p>
+                                    <div class="mt-3">
+                                        <a href="#" class="btn btn-sm"
+                                            style="background-color: var(--primary-color); color: white;">
+                                            <i class="fab fa-github me-2"></i>View Code
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary ms-2">Live Demo</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card project-card">
+                                <img src="/api/placeholder/400/300" alt="Fitness Tracker" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fitness Tracker</h5>
+                                    <p class="card-text">Health and fitness tracking app with workout plans, progress
+                                        monitoring, and nutrition tracking.</p>
+                                    <div class="mt-3">
+                                        <a href="#" class="btn btn-sm"
+                                            style="background-color: var(--primary-color); color: white;">
+                                            <i class="fab fa-github me-2"></i>View Code
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary ms-2">Live Demo</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card project-card h-100">
-                        <img src="/api/placeholder/400/300" alt="Social Media App" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Social Media App</h5>
-                            <p class="card-text">Social networking application with real-time chat, post sharing, and
-                                user authentication.</p>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-sm"
-                                    style="background-color: var(--primary-color); color: white;">
-                                    <i class="fab fa-github me-2"></i>View Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary ms-2">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card project-card h-100">
-                        <img src="/api/placeholder/400/300" alt="Fitness Tracker" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Fitness Tracker</h5>
-                            <p class="card-text">Health and fitness tracking app with workout plans, progress
-                                monitoring, and nutrition tracking.</p>
-                            <div class="mt-3">
-                                <a href="#" class="btn btn-sm"
-                                    style="background-color: var(--primary-color); color: white;">
-                                    <i class="fab fa-github me-2"></i>View Code
-                                </a>
-                                <a href="#" class="btn btn-sm btn-outline-primary ms-2">Live Demo</a>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Certifications Section with Carousel -->
     <section id="certifications" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center section-title">Certifications</h2>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card certification-card h-100">
-                        <img src="/api/placeholder/400/300" alt="Flutter Certification" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Flutter Development</h5>
-                            <p class="card-text">Complete Flutter App Development Bootcamp with Dart - 2023</p>
-                            <p class="text-muted">Issued by: Udemy</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Certificate</a>
+            <div class="carousel-container">
+                <div id="certificationCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="card certification-card">
+                                <img src="/api/placeholder/400/300" alt="Flutter Certification" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Flutter Development</h5>
+                                    <p class="card-text">Complete Flutter App Development Bootcamp with Dart - 2023</p>
+                                    <p class="text-muted">Issued by: Udemy</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card certification-card">
+                                <img src="/api/placeholder/400/300" alt="Firebase Certification" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Firebase Essentials</h5>
+                                    <p class="card-text">Firebase in Flutter: Building Mobile Applications</p>
+                                    <p class="text-muted">Issued by: Google</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="card certification-card">
+                                <img src="/api/placeholder/400/300" alt="UI/UX Certification" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">UI/UX Design</h5>
+                                    <p class="card-text">Mobile App Design: From Wireframe to Prototype</p>
+                                    <p class="text-muted">Issued by: Coursera</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">View Certificate</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card certification-card h-100">
-                        <img src="assets/certificates/Python & Machine Learning-certificate (1).png"
-                            alt="Firebase Certification" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Python & Machine Learning</h5>
-                            <p class="card-text">Firebase in Flutter: Building Mobile Applications</p>
-                            <p class="text-muted">Issued by: Google</p>
-                            <a href="assets/certificates/Python & Machine Learning-certificate (1).png"
-                                class="btn btn-sm btn-outline-primary">View Certificate</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card certification-card h-100">
-                        <img src="/api/placeholder/400/300" alt="UI/UX Certification" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">UI/UX Design</h5>
-                            <p class="card-text">Mobile App Design: From Wireframe to Prototype</p>
-                            <p class="text-muted">Issued by: Coursera</p>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Certificate</a>
-                        </div>
-                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#certificationCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#certificationCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-5">
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <h2 class="text-center section-title">Testimonials</h2>
+            <div class="carousel-container">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card">
+                                <img src="/api/placeholder/80/80" alt="Client 1" class="testimonial-img">
+                                <p class="testimonial-text">
+                                    "Sagar is an exceptional Flutter developer who delivered our app ahead of schedule.
+                                    His attention to detail and problem-solving skills are impressive."
+                                </p>
+                                <p class="testimonial-author">John Doe</p>
+                                <p class="text-muted">CEO, Tech Solutions</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <img src="/api/placeholder/80/80" alt="Client 2" class="testimonial-img">
+                                <p class="testimonial-text">
+                                    "Working with Sagar was a great experience. He understood our requirements perfectly
+                                    and delivered a high-quality mobile application."
+                                </p>
+                                <p class="testimonial-author">Jane Smith</p>
+                                <p class="text-muted">Product Manager, Digital Innovations</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <img src="/api/placeholder/80/80" alt="Client 3" class="testimonial-img">
+                                <p class="testimonial-text">
+                                    "Sagar's expertise in Flutter development helped us create a seamless cross-platform
+                                    experience for our users."
+                                </p>
+                                <p class="testimonial-author">Mike Johnson</p>
+                                <p class="text-muted">CTO, Mobile Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center section-title">Skills</h2>
             <div class="text-center">
@@ -552,18 +775,23 @@
                 <span class="skill-badge">Git</span>
                 <span class="skill-badge">UI/UX Design</span>
                 <span class="skill-badge">Clean Architecture</span>
+                <span class="skill-badge">Provider</span>
+                <span class="skill-badge">Bloc</span>
+                <span class="skill-badge">GetX</span>
+                <span class="skill-badge">SQLite</span>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-5 bg-light">
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
         <div class="container">
             <h2 class="text-center section-title">Contact Me</h2>
             <div class="row">
                 <div class="col-lg-6 mx-auto">
                     <div class="card">
                         <div class="card-body">
-                            <form id="contact-form">
+                            <form id="contact-form" onsubmit="return submitForm(event)">
                                 <div class="mb-3">
                                     <input type="text" class="form-control" placeholder="Your Name" required>
                                 </div>
@@ -586,6 +814,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -616,6 +845,7 @@
                         <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
                         <li><a href="#projects"><i class="fas fa-chevron-right"></i> Projects</a></li>
                         <li><a href="#certifications"><i class="fas fa-chevron-right"></i> Certifications</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
                     </ul>
                 </div>
 
@@ -647,8 +877,10 @@
         <i class="fas fa-moon"></i>
     </button>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Theme Toggle
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
             const icon = document.querySelector('.theme-toggle i');
@@ -656,22 +888,64 @@
             icon.classList.toggle('fa-moon');
         }
 
-        // Smooth scrolling
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize Carousels
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize all carousels
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                new bootstrap.Carousel(carousel, {
+                    interval: 5000,
+                    touch: true
                 });
             });
         });
 
-        // Form submission handling
-        document.getElementById('contact-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            // Add your form submission logic here
+        // Form Submission
+        function submitForm(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            // Here you would typically send the form data to your server
+            // For now, we'll just show a success message
             alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
+            form.reset();
+            return false;
+        }
+
+        // Add active class to nav items on scroll
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
