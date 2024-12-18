@@ -820,8 +820,8 @@
                             <h4 class="project-title">Attendance Management App</h4>
                             <div class="project-tags">
                                 <span class="project-tag">Flutter</span>
+                                <span class="project-tag">API's Integration</span>
                                 <span class="project-tag">Firebase</span>
-                                <span class="project-tag">Maps</span>
                             </div>
                             <p class="text-muted">A comprehensive attendance tracking system with real-time location and
                                 reporting features.</p>
@@ -2017,73 +2017,119 @@
             </div>
         </div>
     </section>
-
     <!-- EmailJS Library -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
         // Initialize EmailJS with your User ID
         (function () {
-            emailjs.init("JrxO5On_Vn459MMIv");
+            try {
+                emailjs.init("JrxO5On_Vn459MMIv");
+                console.log('EmailJS initialized successfully');
+            } catch (error) {
+                console.error('EmailJS initialization error:', error);
+            }
         })();
 
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('contactForm');
             const statusMessage = document.getElementById('status-message');
 
-            form.addEventListener('submit', function (event) {
+            // Email validation function
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Show status message
+            function showStatus(message, className) {
+                statusMessage.innerHTML = message;
+                statusMessage.className = className;
+                statusMessage.style.display = 'block';
+
+                // Auto-hide success messages after 5 seconds
+                if (className === 'success-message') {
+                    setTimeout(() => {
+                        statusMessage.style.display = 'none';
+                    }, 5000);
+                }
+            }
+
+            // Reset submit button
+            function resetButton(submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ms-2"></i>';
+            }
+
+            form.addEventListener('submit', async function (event) {
                 event.preventDefault();
 
-                // Disable submit button during send
+                // Get form elements
                 const submitBtn = form.querySelector('button[type="submit"]');
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+
+                // Disable submit button
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = 'Sending...';
 
-                // Get form values
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
                 // Validate inputs
-                if (!name || !email || !message) {
-                    showStatus('Please fill in all fields.', 'error-message');
-                    resetButton();
+                if (!nameInput.value.trim()) {
+                    showStatus('Please enter your name.', 'error-message');
+                    nameInput.focus();
+                    resetButton(submitBtn);
                     return;
                 }
 
-                // Send email using EmailJS
-                emailjs.send("service_odf4fbk", "template_pqr03bl", {
-                    from_name: name,
-                    from_email: email,
-                    message: message
-                }).then(
-                    function (response) {
-                        showStatus('Message sent successfully!', 'success-message');
-                        form.reset();
-                    },
-                    function (error) {
-                        console.error('EmailJS Send Error:', error);
-                        showStatus(`Failed to send message. Error: ${error.text || 'Unknown error'}`, 'error-message');
-                    }
-                ).finally(() => {
-                    resetButton();
-                });
-
-                // Helper functions
-                function showStatus(message, className) {
-                    statusMessage.innerHTML = message;
-                    statusMessage.className = className;
-                    statusMessage.style.display = 'block';
+                if (!emailInput.value.trim()) {
+                    showStatus('Please enter your email address.', 'error-message');
+                    emailInput.focus();
+                    resetButton(submitBtn);
+                    return;
                 }
 
-                function resetButton() {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ms-2"></i>';
+                if (!isValidEmail(emailInput.value.trim())) {
+                    showStatus('Please enter a valid email address.', 'error-message');
+                    emailInput.focus();
+                    resetButton(submitBtn);
+                    return;
+                }
+
+                if (!messageInput.value.trim()) {
+                    showStatus('Please enter your message.', 'error-message');
+                    messageInput.focus();
+                    resetButton(submitBtn);
+                    return;
+                }
+
+                try {
+                    // Log attempt to send
+                    console.log('Attempting to send email with EmailJS...');
+
+                    const response = await emailjs.send(
+                        "service_odf4fbk",
+                        "template_pqr03bl",
+                        {
+                            from_name: nameInput.value.trim(),
+                            from_email: emailInput.value.trim(),
+                            message: messageInput.value.trim()
+                        }
+                    );
+
+                    console.log('EmailJS Response:', response);
+                    showStatus('Message sent successfully!', 'success-message');
+                    form.reset();
+
+                } catch (error) {
+                    console.error('EmailJS Error:', error);
+                    showStatus(`Failed to send message. Please try again later. (Error: ${error.text || 'Unknown error'})`, 'error-message');
+                } finally {
+                    resetButton(submitBtn);
                 }
             });
         });
     </script>
-
 
 
     <!-- Footer -->
