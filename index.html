@@ -2017,7 +2017,6 @@
             </div>
         </div>
     </section>
-    <!-- EmailJS Library -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
@@ -2041,11 +2040,16 @@
                 return emailRegex.test(email);
             }
 
-            // Show status message
+            // Show status message with custom styling
             function showStatus(message, className) {
                 statusMessage.innerHTML = message;
                 statusMessage.className = className;
                 statusMessage.style.display = 'block';
+                statusMessage.style.color = className === 'error-message' ? 'red' : 'green';
+                statusMessage.style.marginTop = '10px';
+                statusMessage.style.padding = '10px';
+                statusMessage.style.borderRadius = '4px';
+                statusMessage.style.backgroundColor = className === 'error-message' ? '#ffe6e6' : '#e6ffe6';
 
                 // Auto-hide success messages after 5 seconds
                 if (className === 'success-message') {
@@ -2061,6 +2065,16 @@
                 submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane ms-2"></i>';
             }
 
+            // Validate single field and show error
+            function validateField(input, fieldName) {
+                if (!input.value.trim()) {
+                    showStatus(`Please enter your ${fieldName}.`, 'error-message');
+                    input.focus();
+                    return false;
+                }
+                return true;
+            }
+
             form.addEventListener('submit', async function (event) {
                 event.preventDefault();
 
@@ -2070,25 +2084,26 @@
                 const emailInput = document.getElementById('email');
                 const messageInput = document.getElementById('message');
 
+                // Clear previous error messages
+                statusMessage.style.display = 'none';
+
                 // Disable submit button
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = 'Sending...';
 
-                // Validate inputs
-                if (!nameInput.value.trim()) {
-                    showStatus('Please enter your name.', 'error-message');
-                    nameInput.focus();
+                // Validate name first
+                if (!validateField(nameInput, 'name')) {
                     resetButton(submitBtn);
                     return;
                 }
 
-                if (!emailInput.value.trim()) {
-                    showStatus('Please enter your email address.', 'error-message');
-                    emailInput.focus();
+                // Validate email
+                if (!validateField(emailInput, 'email')) {
                     resetButton(submitBtn);
                     return;
                 }
 
+                // Validate email format
                 if (!isValidEmail(emailInput.value.trim())) {
                     showStatus('Please enter a valid email address.', 'error-message');
                     emailInput.focus();
@@ -2096,15 +2111,13 @@
                     return;
                 }
 
-                if (!messageInput.value.trim()) {
-                    showStatus('Please enter your message.', 'error-message');
-                    messageInput.focus();
+                // Validate message
+                if (!validateField(messageInput, 'message')) {
                     resetButton(submitBtn);
                     return;
                 }
 
                 try {
-                    // Log attempt to send
                     console.log('Attempting to send email with EmailJS...');
 
                     const response = await emailjs.send(
